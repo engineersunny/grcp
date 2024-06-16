@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  pyserver:
+    image: hellopython/greeter
+    build: ./MicroServices/Greeter
+    command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --listen 0.0.0.0:36001 server.py runserver 0.0.0.0:36000 --nothreading --noreload"]
+    ports:
+      - 36000:36000
+      - 36001:36001

@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  pyserver:
+    image: dynamicgrpc/grpccompiler
+    build: ./MicroServices/GrpcCompiler
+    command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --listen 0.0.0.0:19124 server.py runserver 0.0.0.0:19123 --nothreading --noreload"]
+    ports:
+      - 19123:19123
+      - 19124:19124

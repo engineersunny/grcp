@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option csharp_namespace = "MicroServices";
+
+message SayHelloRequest {}
+
+message SayHelloResponse {
+    string Message = 1;
+}
+
+service Greeter {
+    rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {}
+}

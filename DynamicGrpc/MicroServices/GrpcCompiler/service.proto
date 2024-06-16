@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option csharp_namespace = "MicroServices";
+
+
+message CompileMessageRequest {}
+
+message CompileMessageResponse {
+    string SourceCode = 1;
+}
+
+service GrpcCompiler {
+    rpc Compile(CompileMessageRequest) returns (CompileMessageResponse) {}
+}
